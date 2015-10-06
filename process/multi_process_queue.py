@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#-*- coding=UTF-8 -*-
+# -*- coding=UTF-8 -*-
 # author: ohgenlong
 
 import os
@@ -15,24 +15,22 @@ from logging.handlers import RotatingFileHandler
 
 from multiprocessing import Process,Pipe,Queue
 
-## 多进程管道
-## 作用：父进程和子进程之间交互数据，像一个队列，子进程send，父进程receive
+## 多进程队列
+## 作用：父进程和子进程之间交互数据，子进程put，父进程get
 
 
-def f(conn,q):
-    conn.send([42,None,'hello'])
-    conn.send("test1")
-    conn.send({"t":"test2"})
-    conn.close()
+def run(q):
+    for i in range(20):
+        q.put("queue parma:%s" % i)
 
 if __name__=="__main__":
-    parent_conn,child_conn = Pipe()
-    p = Process(target=f,args=(child_conn,))
+    queue = Queue()
+    p = Process(target=run,args=(queue,))
     p.start()
 
-    print parent_conn.recv()
-    print parent_conn.recv()
-    print parent_conn.recv()
     ## print parent_conn.recv() 如果这里多加了一个recv的方法，就不会看到下面的队列的输出，会一直卡在这里
+    while True:
+        if not queue.empty():
+            value = queue.get()
+            print  value
     p.join()
-
