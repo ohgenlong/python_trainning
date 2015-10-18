@@ -19,7 +19,7 @@ from multiprocessing import Process,Pipe,Queue
 ## 作用：父进程和子进程之间交互数据，像一个队列，子进程send，父进程receive
 
 
-def f(conn,q):
+def f(conn):
     conn.send([42,None,'hello'])
     conn.send("test1")
     conn.send({"t":"test2"})
