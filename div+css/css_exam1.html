@@ -21,19 +21,30 @@
             border: 1px dotted;
             height: 100%;
         }
-
-        .left {
+        .content >div >div { /*子元素选择器 */
+            border: 2px dotted;
+        }
+        .content .left {
             background: #C0C0C0;
             width: 15%;
             float: left;
             height: 100%;
         }
 
-        .right {
+        .content .right {
             background: #708090;
             width: 100%;
             height: 100%;
         }
+
+        table.company td >p {
+            background: #EF4ED6;
+        }
+        /* 伪类 */
+        a:link {color: #FF0000}
+        a:visited {color: #00FF00}
+        a:hover {color: #FF00FF}
+        a:active {color: #0000FF}
 
         .footer {
             background: #EF4ED6;
@@ -52,11 +63,28 @@
         <div class="content"> <!-- content -->
 
             <div  class="left" > <!--left banner -->
-                left
+                left sidebar
+                <div class="menu">
+                    <ul>
+                        <li>aaa</li>
+                        <li>bbb</li>
+                        <li>ccc</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="right"> <!--right banner -->
                 right
+                <table class="company">
+                    <tr>
+                        <td>aaaa</td>
+                        <td>bbbb</td>
+                        <td>dddd<p>
+                            cccc
+                        </p></td>
+                    </tr>
+                </table>
+                <a href="http://www.baidu.com">baidu</a>
             </div>
         </div>
         <div class="footer"> <!-- footer -->
