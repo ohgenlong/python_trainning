@@ -50,8 +50,12 @@
             margin: 10px;
         }
         .menu_content {
-            background: blue;
+            background: yellowgreen;
             padding: 20px;
+        }
+
+        #menu_content_id {
+            font-size: xx-large;
         }
 
         .header div {
@@ -100,7 +104,7 @@
             <div  class="left" > <!--left banner -->
                 left sidebar
                 <div class="menu">
-                    <ul class="menu_content">
+                    <ul id="menu_content_id" class="menu_content">
                         <li onclick="alert('test')">aaa</li>
                         <li onclick="changeColor(this)">bbb</li>
                         <li onclick="changeColor(this)">ccc</li>
@@ -134,7 +138,7 @@
 </body>
 
 <script type="text/javascript">
-    var ele = document.getElementsByClassName("right");
+    var ele = document.getElementsByClassName("right_content");
     ele[0].innerHTML = "i am a js,ori is baidu";
     function changeColor(ele){
         console.log(ele);
@@ -142,6 +146,7 @@
         //console.log(ele.parentElement.children());
         console.log(ele.parentElement.children);
         for ( i in ele.parentElement.children ) {
+            console.log(ele.parentElement.children[i])
             ele_each = ele.parentElement.children[i];
             ele_each.style.backgroundColor = "green";
         }
