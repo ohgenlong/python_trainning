@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+/* golbal */
+
+body {
+    font-family:"arial";font-size;12px;margin:0;padding;0
+}
+
+.container {
+    height: 20px;
+    width: 30px;
+    background: red;
+}
