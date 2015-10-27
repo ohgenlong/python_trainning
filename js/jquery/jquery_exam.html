@@ -19,9 +19,21 @@
     container
 </div>
 
-
+<div style="background:#98bf21;height:100px;width:100px;position:absolute;" id="movie_block">
+    <span>move_block</span>
+</div>
 
 <script type="text/javascript" rel="script" src="test.js"></script>
+<script type="text/javascript" rel="script" src="jquery-min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#movie_block").click(function(){
+            $(this).animate({
+                left:'250px'
+            });
+        });
+    });
+</script>
 </body>
 
 
