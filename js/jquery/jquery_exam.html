@@ -26,10 +26,15 @@
 <script type="text/javascript" rel="script" src="test.js"></script>
 <script type="text/javascript" rel="script" src="jquery-min.js"></script>
 <script>
+    var move_val = 0;
     $(document).ready(function(){
+        move_val += 250;
         $("#movie_block").click(function(){
             $(this).animate({
-                left:'250px'
+                left: move_val,
+                top: move_val,
+                fontSize: move_val
+
             });
         });
     });
