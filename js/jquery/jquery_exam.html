@@ -19,24 +19,64 @@
     container
 </div>
 
-<div style="background:#98bf21;height:100px;width:100px;position:absolute;" id="movie_block">
+<select>
+    <option value="v1">V1</option>
+    <option value="v2">V2</option>
+    <option value="v3">V3</option>
+</select>
+
+<table border="dashed">
+    <tr>
+        <td>ohgen</td>
+        <td>123</td>
+        <td>abc</td>
+        <td>aaaaa</td>
+        <td><botton id="table_botton"  type="botton" style="background: yellow"> Edit </botton></td>
+    </tr>
+</table>
+
+<div style="background:#98bf21;height:100px;width:100px;position:relative;" id="movie_block">
     <span>move_block</span>
 </div>
 
-<script type="text/javascript" rel="script" src="test.js"></script>
+
+
+
+<script type="text/javascript" rel="script" src="change_color.js"></script>
 <script type="text/javascript" rel="script" src="jquery-min.js"></script>
 <script>
     var move_val = 0;
     $(document).ready(function(){
-        move_val += 250;
+        // 动画效果
         $("#movie_block").click(function(){
+            move_val += 250;
             $(this).animate({
                 left: move_val,
                 top: move_val,
-                fontSize: move_val
+                fontSize: '30px'
 
             });
+            // 更改自身的内容
+            $(this).html("<span>change to text</span>");
+            console.log($(this).html());
+            console.log($(this).text());
         });
+        // 取选择的值
+        $("select").change(function(){
+            var select_op = $(this).children("option:selected");
+            console.log(select_op.val())
+        });
+
+        $("#table_botton").click(function(){
+            var ele = $(this).parent().siblings()
+            ele.each(function(){
+                var change_ele = '<input value="' + $(this).text() + '"/>';
+                $(this).html(change_ele);
+                console.log(change_ele);
+            });
+
+        });
+
     });
 </script>
 </body>
