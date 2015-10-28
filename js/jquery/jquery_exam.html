@@ -31,7 +31,7 @@
         <td>123</td>
         <td>abc</td>
         <td>aaaaa</td>
-        <td><botton id="table_botton"  type="botton" style="background: yellow"> Edit </botton></td>
+        <td> <input id="table_botton"  type="botton" value="edit"/> </td>
     </tr>
 </table>
 
@@ -67,12 +67,16 @@
             console.log(select_op.val())
         });
 
+        // 改变上一层的同级标签的html
         $("#table_botton").click(function(){
-            var ele = $(this).parent().siblings()
+            var ele = $(this).parent().siblings();
+            $(this).attr('disabled','disabled'); // 更改属性的值，括号内的第一个值是属性名，后面的是属性的值，等于加属性 disabled="disalbed"
+            $(this).prop('disabled',true); //使disabled这个属性为true，等于加属性 disabled="disalbed"
+            console.log($(this)[0]);
             ele.each(function(){
                 var change_ele = '<input value="' + $(this).text() + '"/>';
                 $(this).html(change_ele);
-                console.log(change_ele);
+                console.log($(this).val());
             });
 
         });
