@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="test.css">
-    <!--<style type="text/css">
-        .container {
+    <style type="text/css">
+        /*.container {
+            height: 10px;
+            width: 8px;
+            background: yellow;
+        }*/
+
+        .newclass {
             height: 10px;
             width: 8px;
             background: yellow;
@@ -39,7 +45,7 @@
     <span>move_block</span>
 </div>
 
-
+<p> origin </p>
 
 
 <script type="text/javascript" rel="script" src="change_color.js"></script>
@@ -80,6 +86,15 @@
             });
 
         });
+
+        $("p").click(function(){
+
+            //$(this).append("append");
+            //$(this).prepend("prepend");
+            //$(this).remove();
+            $(this).empty();
+        });
+
 
     });
 </script>
