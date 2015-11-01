@@ -47,6 +47,14 @@
 
 <p> origin </p>
 
+<div id="current_time">
+
+</div>
+<div id="stop_time">
+    <botton id="bt_stop_time" type="botton">stop_time</botton>
+    <botton id="bt_start_time" type="botton">start_time</botton>
+</div>
+
 
 <script type="text/javascript" rel="script" src="change_color.js"></script>
 <script type="text/javascript" rel="script" src="jquery-min.js"></script>
@@ -88,13 +96,47 @@
         });
 
         $("p").click(function(){
-
             //$(this).append("append");
             //$(this).prepend("prepend");
-            //$(this).remove();
-            $(this).empty();
+            //$(this).remove(); // 清除整个标签
+            $(this).empty(); //清除内容，但是不删除标签
         });
 
+        var name = {
+            'abc': 'bac',
+            'ddd': 'ddd'
+        };
+
+        $.each(name,function(key,value){
+            console.log(key + "-->" + value);
+        });
+
+        var time_ele = $("#current_time");
+        var time_counter = setInterval(function(){
+            var a = $(time_ele).text(new Date());
+            console.log($(a).text());
+            },1000);
+
+        $("#bt_stop_time").click(function(){
+            clearInterval(time_counter);
+        });
+
+        $("#bt_start_time").click(function(){
+            var time_ele = $("#current_time");
+            setInterval(function(){
+            var a = $(time_ele).text(new Date());
+            console.log($(a).text());
+            },1000);
+        });
+
+        $.get('/login/', {username:'ohgen','passwd':'123'}, function (callback) {
+            console.log("-----" + callback);
+        });
+
+        $.getJSON('/login/', {username:'ohgen','passwd':'123'}, function (callback) {
+            console.log("-----" + callback);
+            JSON.parse(); // json 序列化
+        });
 
     });
 </script>
